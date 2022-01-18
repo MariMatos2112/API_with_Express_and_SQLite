@@ -1,8 +1,11 @@
 const sqlite3 = require("sqlite3");
+const sqliteCreateTable = require("./createTable"); 
 
 const db = new sqlite3.Database("./database/db.sqlite", (error) => {
   if (error) console.log(error);
 });
+
+sqliteCreateTable.createTable();
 
 // Method GET: Get all data from the db
 exports.getAllData = (resp) => {

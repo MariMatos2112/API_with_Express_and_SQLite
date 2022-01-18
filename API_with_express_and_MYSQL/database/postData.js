@@ -4,7 +4,7 @@ const db = new sqlite3.Database("./database/db.sqlite", (error) => {
   if (error) console.log(error);
 });
 
-exports.addSong = (requisitionBody) => {
+exports.addSong = (response ,requisitionBody) => {
   if (requisitionBody.song && requisitionBody.singer) {
     db.run(
       "INSERT INTO saved_songs (date, time, song, singer, song_type, album) VALUES (?, ?, ?, ?, ?, ?)",
@@ -17,11 +17,12 @@ exports.addSong = (requisitionBody) => {
         requisitionBody.album,
       ],
       (error) => {
-        if (error) return error;
+        if (error) response.send(error);
       }
     );
-    return "The data was saved successfully!";
+    response.send("The data was saved successfully!");
   } else {
-    return "Some columns cannot be empty. Please fill them.";
+    response.status(400);
+    response.send("Some columns cannot be empty. Please fill them.");
   }
 };

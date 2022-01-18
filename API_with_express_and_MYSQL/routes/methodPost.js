@@ -10,8 +10,8 @@ module.exports = (app) => {
       time: `${currentDateTime.getHours()}:${currentDateTime.getMinutes()}:${currentDateTime.getSeconds()}`,
     };
 
-    apiResponse = sqlitePostData.addSong(requisitionBody);
+    sqlitePostData.addSong(response, requisitionBody);
 
-    response.send(apiResponse);
+    // response.send(apiResponse);
   });
 };
