@@ -4,6 +4,7 @@ const db = new sqlite3.Database("./database/db.sqlite", (error) => {
   if (error) console.log(error);
 });
 
+// Method DELETE: Delete a song using its ID
 exports.deleteSongById = (response, id) => {
   db.all(`SELECT * FROM saved_songs WHERE id = ${id}`, (error, data) => {
     if (data) {

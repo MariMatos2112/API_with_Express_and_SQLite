@@ -11,7 +11,5 @@ module.exports = (app) => {
     };
 
     sqlitePostData.addSong(response, requisitionBody);
-
-    // response.send(apiResponse);
   });
 };

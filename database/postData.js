@@ -4,6 +4,7 @@ const db = new sqlite3.Database("./database/db.sqlite", (error) => {
   if (error) console.log(error);
 });
 
+// Method POST: Add a song in the database
 exports.addSong = (response ,requisitionBody) => {
   if (requisitionBody.song && requisitionBody.singer) {
     db.run(

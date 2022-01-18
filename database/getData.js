@@ -37,6 +37,7 @@ exports.getSingerByName = (resp, singer) => {
   );
 };
 
+// Method GET: Get data from a specific song and singer
 exports.getSongAndSinger = (resp, song, singer) => {
   db.all(
     `SELECT * FROM saved_songs WHERE song LIKE "${song}" AND singer LIKE "${singer}"`,
